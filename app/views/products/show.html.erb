@@ -1,0 +1,27 @@
+<h1 class="my-4">
+  <%= @product.name %>
+</h1>
+<p>
+  <%= link_to t('products.back'), products_path %>
+</p>
+
+<div class="row">
+  <div class="col-md-8">
+    <%= image_tag @product.image, class: 'img-fluid' %>
+  </div>
+
+  <div class="col-md-4">
+    <h3 class="my-3">Project Description</h3>
+    <p>
+      <%= @product.description %>
+    </p>
+  </div>
+</div>
+
+<%= render 'shared/comments', comments: @product.comments, product: @product %>
+
+<div class="row my-2">
+  <div class="col-md-8">
+    <%= render 'comments/form', product: @product, comment: @comment %>
+  </div>
+</div>
